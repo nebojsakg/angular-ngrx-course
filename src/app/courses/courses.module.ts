@@ -1,5 +1,6 @@
 import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import { lessonsReducers } from 'app/courses/lessons.reducers';
 import {HomeComponent} from "./home/home.component";
 import {CoursesCardListComponent} from "./courses-card-list/courses-card-list.component";
 import {CourseDialogComponent} from "./course-dialog/course-dialog.component";
@@ -66,6 +67,7 @@ export const coursesRoutes: Routes = [
         ReactiveFormsModule,
         RouterModule.forChild(coursesRoutes),
         StoreModule.forFeature('courses', coursesReducer),
+        StoreModule.forFeature('lessons', lessonsReducers),
         EffectsModule.forFeature([CourseEffects])
     ],
     declarations: [HomeComponent, CoursesCardListComponent, CourseDialogComponent, CourseComponent],
